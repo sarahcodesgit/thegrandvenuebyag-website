@@ -13,6 +13,13 @@
 - Recreate the template’s polished interaction character for the hero: entrance/text reveals, image settling transition, scroll behavior, and hover/focus interactions; honor reduced motion and preserve a visible no-JavaScript reading experience.
 - Adapt the original centered AURÉLION logo location to The AG Grand Venue branding and the original minimal overlay navigation to venue-appropriate navigation. Focus this iteration on the hero and first editorial portion of the homepage; do not continue a wider homepage redesign in this correction.
 
+## 1B. Centered full-screen navigation refinement
+
+- Use Mexquite’s full-screen menu only as a UX/layout reference: dark full-screen overlay; The AG Grand Venue branding centered at top; the separate outlined **Schedule a Tour** CTA upper-left; an isolated X/close control upper-right; and understated venue information at the bottom.
+- Center the required stacked links both vertically and horizontally: **Home, The Venue, Weddings, Events, Gallery, About, Contact**. Retain The Grand’s elegant serif, make the links luxury-scale but significantly smaller than the existing oversized menu, remove horizontal dividers and decorative arrows, and create generous intentional negative space.
+- Keep the new homepage hero and first editorial handoff unchanged. Preserve polished Framer-inspired opening and closing transitions: dark background fade, subtle staggered link reveal, restrained hover/focus opacity/movement/italic treatment, dialog semantics, Escape close, keyboard focus loop, and reduced-motion support.
+- Show **2103 FM 1960 Rd W · Houston, TX 77090** near the bottom. Do not invent social profiles; leave an intentional future location for official social links.
+
 ## 2. Complete public venue journeys
 
 - Implement Home, The Venue, Weddings, Events, Gallery, About, Contact, and branded 404 pages with simple shared navigation and internal linking.

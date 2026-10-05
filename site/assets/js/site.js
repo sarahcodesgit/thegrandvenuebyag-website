@@ -15,39 +15,71 @@
   window.addEventListener('resize', setHeaderTone);
 
   if (toggle && menu) {
+    const menuClose = menu.querySelector('[data-menu-close]');
+    const backgroundTargets = [
+      document.querySelector('.skip-link'),
+      header.querySelector('.header-inner'),
+      document.querySelector('main'),
+      document.querySelector('footer'),
+    ].filter(Boolean);
+    const closeDuration = 460;
+    let closeTimer;
+    let openFrame;
+    const setBackgroundInert = (isInert) => {
+      backgroundTargets.forEach((element) => {
+        element.toggleAttribute('inert', isInert);
+        if (isInert) element.setAttribute('aria-hidden', 'true');
+        else element.removeAttribute('aria-hidden');
+      });
+    };
     const closeMenu = () => {
+      if (menu.hidden) return;
+      window.cancelAnimationFrame(openFrame);
+      openFrame = undefined;
       toggle.setAttribute('aria-expanded', 'false');
       toggle.setAttribute('aria-label', 'Open navigation');
       toggle.classList.remove('is-active');
-      header.classList.remove('is-menu-open');
       menu.classList.remove('is-open');
-      menu.hidden = true;
+      menu.classList.add('is-closing');
       document.body.style.overflow = '';
-      setHeaderTone();
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(() => {
+        menu.hidden = true;
+        menu.classList.remove('is-closing');
+        setBackgroundInert(false);
+        header.classList.remove('is-menu-open');
+        setHeaderTone();
+      }, closeDuration);
     };
     const openMenu = () => {
+      window.clearTimeout(closeTimer);
+      window.cancelAnimationFrame(openFrame);
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', 'Close navigation');
       toggle.classList.add('is-active');
       header.classList.add('is-menu-open');
+      setBackgroundInert(true);
       menu.hidden = false;
+      menu.classList.remove('is-closing', 'is-open');
       document.body.style.overflow = 'hidden';
-      requestAnimationFrame(() => menu.classList.add('is-open'));
+      openFrame = requestAnimationFrame(() => {
+        if (toggle.getAttribute('aria-expanded') === 'true') menu.classList.add('is-open');
+      });
       menu.querySelector('[data-menu-link]')?.focus();
     };
     const menuFocusable = () => [
-      toggle,
       ...menu.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'),
-    ].filter((element) => !element.hasAttribute('disabled'));
+    ].filter((element) => element && !element.hasAttribute('disabled'));
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
       if (open) closeMenu(); else openMenu();
     });
+    menuClose?.addEventListener('click', closeMenu);
     menu.querySelectorAll('[data-menu-link]').forEach((link) => link.addEventListener('click', closeMenu));
     document.addEventListener('keydown', (event) => {
       if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
         closeMenu();
-        toggle.focus();
+        window.setTimeout(() => toggle.focus(), closeDuration);
       }
       if (event.key === 'Tab' && toggle.getAttribute('aria-expanded') === 'true') {
         const items = menuFocusable();
