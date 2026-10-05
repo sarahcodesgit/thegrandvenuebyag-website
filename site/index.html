@@ -23,42 +23,45 @@
   <link rel="stylesheet" href="/assets/css/site.css">
   <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
+<body class="page page-home">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" data-header>
   <div class="header-inner">
-    <a class="brand" href="/" aria-label="The AG Grand Venue home">
-      <span class="brand-mark">AG</span>
-      <span class="brand-copy"><span>THE</span><strong>GRAND VENUE</strong></span>
+    <a class="header-cta" href="/contact/#inquiry">Schedule a Tour</a>
+    <a class="header-brand" href="/" aria-label="The AG Grand Venue home">
+      <span class="header-brand-name">THE AG GRAND VENUE</span>
+      <span class="header-brand-subline">North Houston · Weddings · Private Events</span>
     </a>
-    <nav class="desktop-nav" aria-label="Primary navigation"><a href="/" aria-current="page">Home</a><a href="/the-venue/" >The Venue</a><a href="/weddings/" >Weddings</a><a href="/events/" >Events</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/contact/" >Contact</a></nav>
-    <a class="header-cta" href="/contact/#inquiry">Schedule a Tour <span aria-hidden="true">↗</span></a>
-    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
-      <span class="sr-only">Open menu</span><span></span><span></span>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation">
+      <span class="sr-only">Open navigation</span><span></span><span></span>
     </button>
   </div>
-  <div id="mobile-menu" class="mobile-menu" data-mobile-menu hidden>
-    <nav aria-label="Mobile navigation"><a href="/" aria-current="page">Home</a><a href="/the-venue/" >The Venue</a><a href="/weddings/" >Weddings</a><a href="/events/" >Events</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/contact/" >Contact</a></nav>
-    <a class="button button-light" href="/contact/#inquiry">Schedule a Tour <span aria-hidden="true">↗</span></a>
+  <div id="site-menu" class="site-menu" data-site-menu role="dialog" aria-modal="true" aria-label="Site navigation" hidden>
+    <div class="site-menu-inner container">
+      <p class="eyebrow eyebrow-light">Explore The Grand</p>
+      <nav class="site-menu-nav" aria-label="Primary navigation"><a href="/" aria-current="page" data-menu-link>Home</a><a href="/the-venue/"  data-menu-link>The Venue</a><a href="/weddings/"  data-menu-link>Weddings</a><a href="/events/"  data-menu-link>Events</a><a href="/gallery/"  data-menu-link>Gallery</a><a href="/about/"  data-menu-link>About</a><a href="/contact/"  data-menu-link>Contact</a></nav>
+      <div class="site-menu-meta"><a href="mailto:info@thegrandbyag.com">info@thegrandbyag.com</a><span>2103 FM 1960 Rd W · Houston, TX 77090</span></div>
+    </div>
   </div>
 </header>
   <main id="main">
-<section class="hero hero-home">
-  <figure class="image-frame hero-image" data-concept-image>
-  <img src="/assets/images/concept/arrival-study.png" alt="Conceptual editorial image of a floral arrival moment; this is not The AG Grand Venue." loading="eager" fetchpriority="high">
-  <figcaption>Concept imagery — layout and mood study only</figcaption>
+<section class="hero hero-home" aria-labelledby="home-hero-title">
+  <figure class="image-frame hero-image hero-concept-image" data-concept-image>
+  <img src="/manus-storage/async-images/NPJRKZYXpzWdt7lQ9rWtnJ/image-1.webp" alt="Conceptual luxury ballroom wedding reception with chandeliers and elegant floral tables; this is not The AG Grand Venue." loading="eager" fetchpriority="high">
+  <figcaption>Concept imagery — hero layout and mood study only</figcaption>
 </figure>
   <div class="hero-overlay"></div>
-  <div class="hero-content container">
-    <p class="eyebrow eyebrow-light reveal">North Houston · Weddings + Private Events</p>
-    <h1 class="hero-title reveal">A Grand Setting<br><em>for What Matters.</em></h1>
-    <div class="hero-bottom reveal"><p>The AG Grand Venue is a new point of view for weddings and milestone celebrations in Houston.</p><div class="hero-actions"><a class="button button-light" href="/contact/#inquiry">Schedule a Tour <span aria-hidden="true">↗</span></a><a class="text-link text-link-light" href="/the-venue/">Discover the venue <span aria-hidden="true">↓</span></a></div></div>
+  <div class="hero-center container">
+    <p class="hero-eyebrow">North Houston · Weddings · Private Events</p>
+    <h1 id="home-hero-title" class="hero-title hero-title-centered"><span class="hero-line"><span>The Grandest Moments</span></span><span class="hero-line"><em>Deserve a Grand Setting.</em></span></h1>
   </div>
-  <p class="hero-scroll" aria-hidden="true">Scroll to discover <span></span></p>
+  <a class="hero-scroll" href="#our-point-of-view"><span>Scroll to discover</span><i aria-hidden="true"></i></a>
 </section>
-<section class="intro-section section-space container">
-  <div class="section-index reveal">01 <span>Our Point of View</span></div>
-  <div class="intro-copy reveal"><p class="eyebrow">The AG Grand Venue</p><h2 class="display-xl">For the celebrations that deserve <em>more than ordinary.</em></h2><p class="lead">A refined backdrop for gathering, toasting, dancing, and making the kind of memories that are retold for years. The AG Grand Venue brings a grander sense of occasion to weddings and private events in North Houston.</p><a class="text-link" href="/about/">Meet The Grand <span aria-hidden="true">↗</span></a></div>
+<section id="our-point-of-view" class="home-manifesto">
+  <div class="container manifesto-grid">
+    <div class="manifesto-copy reveal"><p class="eyebrow">The AG Grand Venue</p><h2 class="display-lg">A place for moments<br><em>that ask for more.</em></h2></div>
+    <div class="manifesto-detail reveal"><p class="lead">A new North Houston setting for ceremonies, celebrations, and gatherings with a sense of occasion.</p><p>Here, the anticipation of arrival, the meaning of tradition, and the energy of the room all have space to unfold. The Grand is imagined for the memories that deserve to feel singular from the very first moment.</p><a class="text-link" href="/the-venue/">Discover The Venue <span aria-hidden="true">↗</span></a></div>
+  </div>
 </section>
 <section class="feature-panel panel-dark">
   <div class="container feature-grid">

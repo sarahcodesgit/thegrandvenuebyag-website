@@ -6,6 +6,13 @@
 - Provide a conversion-focused homepage with a cinematic hero, The Grand experience, Weddings, Quinceañeras & Celebrations, Private & Corporate Events, an editorial gallery preview, the supplied location, and final Schedule a Tour / Check Availability / Inquire Now pathways.
 - Retain a grand, luxurious, modern, architectural, romantic-but-not-overly-feminine, editorial presentation with large imagery, elegant typography, whitespace, smooth but restrained motion, and no generic wedding-template/card-grid treatment.
 
+## 1A. Template-first homepage hero correction
+
+- Preserve the original AURÉLION homepage hero’s full-screen cinematic composition: full-viewport image, dark overlay, centered large serif headline, minimal overlay navigation, and top-left CTA treatment. Do not replace this hero with a new generic composition.
+- Replace only the hotel content and imagery with The AG Grand Venue content: a dramatic luxury ballroom/event-venue concept image identified internally and visibly as placeholder imagery; **NORTH HOUSTON · WEDDINGS · PRIVATE EVENTS**; **The Grandest Moments / Deserve a Grand Setting.**; and **Schedule a Tour**.
+- Recreate the template’s polished interaction character for the hero: entrance/text reveals, image settling transition, scroll behavior, and hover/focus interactions; honor reduced motion and preserve a visible no-JavaScript reading experience.
+- Adapt the original centered AURÉLION logo location to The AG Grand Venue branding and the original minimal overlay navigation to venue-appropriate navigation. Focus this iteration on the hero and first editorial portion of the homepage; do not continue a wider homepage redesign in this correction.
+
 ## 2. Complete public venue journeys
 
 - Implement Home, The Venue, Weddings, Events, Gallery, About, Contact, and branded 404 pages with simple shared navigation and internal linking.

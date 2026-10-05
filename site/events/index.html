@@ -23,23 +23,25 @@
   <link rel="stylesheet" href="/assets/css/site.css">
   <script src="/assets/js/site.js" defer></script>
 </head>
-<body>
+<body class="page page-events">
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header" data-header>
   <div class="header-inner">
-    <a class="brand" href="/" aria-label="The AG Grand Venue home">
-      <span class="brand-mark">AG</span>
-      <span class="brand-copy"><span>THE</span><strong>GRAND VENUE</strong></span>
+    <a class="header-cta" href="/contact/#inquiry">Schedule a Tour</a>
+    <a class="header-brand" href="/" aria-label="The AG Grand Venue home">
+      <span class="header-brand-name">THE AG GRAND VENUE</span>
+      <span class="header-brand-subline">North Houston · Weddings · Private Events</span>
     </a>
-    <nav class="desktop-nav" aria-label="Primary navigation"><a href="/" >Home</a><a href="/the-venue/" >The Venue</a><a href="/weddings/" >Weddings</a><a href="/events/" aria-current="page">Events</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/contact/" >Contact</a></nav>
-    <a class="header-cta" href="/contact/#inquiry">Schedule a Tour <span aria-hidden="true">↗</span></a>
-    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
-      <span class="sr-only">Open menu</span><span></span><span></span>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation">
+      <span class="sr-only">Open navigation</span><span></span><span></span>
     </button>
   </div>
-  <div id="mobile-menu" class="mobile-menu" data-mobile-menu hidden>
-    <nav aria-label="Mobile navigation"><a href="/" >Home</a><a href="/the-venue/" >The Venue</a><a href="/weddings/" >Weddings</a><a href="/events/" aria-current="page">Events</a><a href="/gallery/" >Gallery</a><a href="/about/" >About</a><a href="/contact/" >Contact</a></nav>
-    <a class="button button-light" href="/contact/#inquiry">Schedule a Tour <span aria-hidden="true">↗</span></a>
+  <div id="site-menu" class="site-menu" data-site-menu role="dialog" aria-modal="true" aria-label="Site navigation" hidden>
+    <div class="site-menu-inner container">
+      <p class="eyebrow eyebrow-light">Explore The Grand</p>
+      <nav class="site-menu-nav" aria-label="Primary navigation"><a href="/"  data-menu-link>Home</a><a href="/the-venue/"  data-menu-link>The Venue</a><a href="/weddings/"  data-menu-link>Weddings</a><a href="/events/" aria-current="page" data-menu-link>Events</a><a href="/gallery/"  data-menu-link>Gallery</a><a href="/about/"  data-menu-link>About</a><a href="/contact/"  data-menu-link>Contact</a></nav>
+      <div class="site-menu-meta"><a href="mailto:info@thegrandbyag.com">info@thegrandbyag.com</a><span>2103 FM 1960 Rd W · Houston, TX 77090</span></div>
+    </div>
   </div>
 </header>
   <main id="main">

@@ -18,6 +18,7 @@ Then open `http://localhost:3000`.
 - Shared styles are in `site/assets/css/site.css`.
 - Navigation, reveal effects, and the non-submitting inquiry-form UI are in `site/assets/js/site.js`.
 - The supplied-template image replacement map is in `site/assets/images/README.md`.
+- The homepage hero uses a managed concept image declared as `HERO_CONCEPT_URL` in `scripts/generate_site.py`; it remains a placeholder until authentic Grand Venue photography is approved.
 - Unknown business details remain documented in `CONTENT-PLACEHOLDERS.md` rather than invented in the site.
 
 ## Inquiry form handoff

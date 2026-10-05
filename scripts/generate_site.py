@@ -93,25 +93,27 @@ PAGES = {
 
 def nav(current: str) -> str:
     links = "".join(
-        f'<a href="{href}" {"aria-current=\"page\"" if href == current else ""}>{label}</a>'
+        f'<a href="{href}" {"aria-current=\"page\"" if href == current else ""} data-menu-link>{label}</a>'
         for label, href in NAV
     )
-    header_class = "site-header site-header-light" if current == "/gallery/" else "site-header"
+    header_class = "site-header"
     return f'''<header class="{header_class}" data-header>
   <div class="header-inner">
-    <a class="brand" href="/" aria-label="The AG Grand Venue home">
-      <span class="brand-mark">AG</span>
-      <span class="brand-copy"><span>THE</span><strong>GRAND VENUE</strong></span>
+    <a class="header-cta" href="/contact/#inquiry">Schedule a Tour</a>
+    <a class="header-brand" href="/" aria-label="The AG Grand Venue home">
+      <span class="header-brand-name">THE AG GRAND VENUE</span>
+      <span class="header-brand-subline">North Houston · Weddings · Private Events</span>
     </a>
-    <nav class="desktop-nav" aria-label="Primary navigation">{links}</nav>
-    <a class="header-cta" href="/contact/#inquiry">Schedule a Tour <span aria-hidden="true">↗</span></a>
-    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu">
-      <span class="sr-only">Open menu</span><span></span><span></span>
+    <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="site-menu" aria-label="Open navigation">
+      <span class="sr-only">Open navigation</span><span></span><span></span>
     </button>
   </div>
-  <div id="mobile-menu" class="mobile-menu" data-mobile-menu hidden>
-    <nav aria-label="Mobile navigation">{links}</nav>
-    <a class="button button-light" href="/contact/#inquiry">Schedule a Tour <span aria-hidden="true">↗</span></a>
+  <div id="site-menu" class="site-menu" data-site-menu role="dialog" aria-modal="true" aria-label="Site navigation" hidden>
+    <div class="site-menu-inner container">
+      <p class="eyebrow eyebrow-light">Explore The Grand</p>
+      <nav class="site-menu-nav" aria-label="Primary navigation">{links}</nav>
+      <div class="site-menu-meta"><a href="mailto:info@thegrandbyag.com">info@thegrandbyag.com</a><span>2103 FM 1960 Rd W · Houston, TX 77090</span></div>
+    </div>
   </div>
 </header>'''
 
@@ -140,6 +142,16 @@ def image(name: str, class_name: str = "", eager: bool = False) -> str:
     return f'''<figure class="image-frame {class_name}" data-concept-image>
   <img src="/assets/images/concept/{name}" alt="{alt}" loading="{loading}"{fetch}>
   <figcaption>Concept imagery — layout and mood study only</figcaption>
+</figure>'''
+
+
+HERO_CONCEPT_URL = "/manus-storage/async-images/NPJRKZYXpzWdt7lQ9rWtnJ/image-1.webp"
+
+
+def hero_concept_image() -> str:
+    return f'''<figure class="image-frame hero-image hero-concept-image" data-concept-image>
+  <img src="{HERO_CONCEPT_URL}" alt="Conceptual luxury ballroom wedding reception with chandeliers and elegant floral tables; this is not The AG Grand Venue." loading="eager" fetchpriority="high">
+  <figcaption>Concept imagery — hero layout and mood study only</figcaption>
 </figure>'''
 
 
@@ -176,7 +188,7 @@ def head(page: dict) -> str:
 def page(key: str, main: str) -> str:
     data = PAGES[key]
     return f'''{head(data)}
-<body>
+<body class="page page-{key}">
   <a class="skip-link" href="#main">Skip to content</a>
   {nav(data['route'])}
   <main id="main">{main}</main>
@@ -187,19 +199,20 @@ def page(key: str, main: str) -> str:
 
 
 HOME = f'''
-<section class="hero hero-home">
-  {image("arrival-study.png", "hero-image", eager=True)}
+<section class="hero hero-home" aria-labelledby="home-hero-title">
+  {hero_concept_image()}
   <div class="hero-overlay"></div>
-  <div class="hero-content container">
-    <p class="eyebrow eyebrow-light reveal">North Houston · Weddings + Private Events</p>
-    <h1 class="hero-title reveal">A Grand Setting<br><em>for What Matters.</em></h1>
-    <div class="hero-bottom reveal"><p>The AG Grand Venue is a new point of view for weddings and milestone celebrations in Houston.</p><div class="hero-actions"><a class="button button-light" href="/contact/#inquiry">Schedule a Tour <span aria-hidden="true">↗</span></a><a class="text-link text-link-light" href="/the-venue/">Discover the venue <span aria-hidden="true">↓</span></a></div></div>
+  <div class="hero-center container">
+    <p class="hero-eyebrow">North Houston · Weddings · Private Events</p>
+    <h1 id="home-hero-title" class="hero-title hero-title-centered"><span class="hero-line"><span>The Grandest Moments</span></span><span class="hero-line"><em>Deserve a Grand Setting.</em></span></h1>
   </div>
-  <p class="hero-scroll" aria-hidden="true">Scroll to discover <span></span></p>
+  <a class="hero-scroll" href="#our-point-of-view"><span>Scroll to discover</span><i aria-hidden="true"></i></a>
 </section>
-<section class="intro-section section-space container">
-  <div class="section-index reveal">01 <span>Our Point of View</span></div>
-  <div class="intro-copy reveal"><p class="eyebrow">The AG Grand Venue</p><h2 class="display-xl">For the celebrations that deserve <em>more than ordinary.</em></h2><p class="lead">A refined backdrop for gathering, toasting, dancing, and making the kind of memories that are retold for years. The AG Grand Venue brings a grander sense of occasion to weddings and private events in North Houston.</p><a class="text-link" href="/about/">Meet The Grand <span aria-hidden="true">↗</span></a></div>
+<section id="our-point-of-view" class="home-manifesto">
+  <div class="container manifesto-grid">
+    <div class="manifesto-copy reveal"><p class="eyebrow">The AG Grand Venue</p><h2 class="display-lg">A place for moments<br><em>that ask for more.</em></h2></div>
+    <div class="manifesto-detail reveal"><p class="lead">A new North Houston setting for ceremonies, celebrations, and gatherings with a sense of occasion.</p><p>Here, the anticipation of arrival, the meaning of tradition, and the energy of the room all have space to unfold. The Grand is imagined for the memories that deserve to feel singular from the very first moment.</p><a class="text-link" href="/the-venue/">Discover The Venue <span aria-hidden="true">↗</span></a></div>
+  </div>
 </section>
 <section class="feature-panel panel-dark">
   <div class="container feature-grid">
@@ -320,31 +333,78 @@ button { cursor: pointer; }
 .panel-dark { color: var(--white); background: var(--ink); }
 .panel-warm { background: var(--paper); }
 
-.site-header { position: absolute; z-index: 20; top: 0; left: 0; width: 100%; color: var(--white); border-bottom: 1px solid rgba(255,255,255,.18); transition: color .35s ease, background .35s ease, border-color .35s ease; }
-.site-header.site-header-light { color: var(--ink); border-color: var(--line); }
-.site-header.is-scrolled { position: fixed; color: var(--ink); background: rgba(243,238,230,.96); border-color: var(--line); box-shadow: 0 5px 20px rgba(0,0,0,.04); backdrop-filter: blur(12px); }
-.header-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 82px; width: var(--container); margin: 0 auto; }
+.site-header { position: fixed; z-index: 30; top: 0; left: 0; width: 100%; color: var(--white); pointer-events: none; transition: color .35s ease; }
+.site-header > * { pointer-events: auto; }
+.site-header.is-light-surface { color: var(--ink); }
+.site-header.is-menu-open { color: var(--white); }
+.header-inner { position: relative; z-index: 2; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; min-height: 92px; width: var(--container); margin: 0 auto; }
+.header-cta { display: inline-flex; justify-self: start; align-items: center; justify-content: center; min-height: 39px; padding: 0 .9rem; border: 1px solid currentColor; font-size: .56rem; font-weight: 500; letter-spacing: .19em; text-transform: uppercase; transition: color .3s ease, background .3s ease, transform .3s ease; }
+.header-cta:hover { color: var(--ink); background: var(--white); transform: translateY(-2px); }
+.header-brand { display: grid; justify-items: center; gap: .16rem; width: max-content; max-width: 50vw; margin: 0 auto; color: inherit; line-height: 1; text-align: center; }
+.header-brand-name { font-family: var(--serif); font-size: clamp(1.25rem, 2.1vw, 1.9rem); font-weight: 600; letter-spacing: .075em; white-space: nowrap; }
+.header-brand-subline { overflow: hidden; max-width: 100%; font-size: .43rem; font-weight: 500; letter-spacing: .19em; text-overflow: ellipsis; text-transform: uppercase; white-space: nowrap; }
+.menu-toggle { display: grid; justify-self: end; gap: 5px; width: 43px; height: 43px; padding: 0; border: 1px solid currentColor; color: currentColor; background: rgba(255,255,255,.12); place-content: center; transition: color .3s ease, background .3s ease, border-color .3s ease; }
+.site-header.is-light-surface .menu-toggle { background: rgba(23,21,19,.05); }
+.menu-toggle:hover { color: var(--ink); background: var(--white); }
+.menu-toggle span:not(.sr-only) { display: block; width: 18px; height: 1px; background: currentColor; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+.menu-toggle.is-active span:nth-child(2) { transform: translateY(3px) rotate(45deg); }
+.menu-toggle.is-active span:nth-child(3) { transform: translateY(-3px) rotate(-45deg); }
+.site-menu { position: fixed; z-index: 1; inset: 0; color: var(--white); background: #171513; }
+.site-menu[hidden] { display: none !important; }
+.site-menu::before { position: absolute; inset: 0; content: ""; opacity: .55; background: radial-gradient(circle at 78% 18%, rgba(154,103,77,.34), transparent 28%), linear-gradient(120deg, #171513, #24201d 65%, #171513); }
+.site-menu-inner { position: relative; display: grid; min-height: 100%; padding-top: clamp(8.5rem, 17vh, 12rem); padding-bottom: 3rem; align-content: start; }
+.site-menu-nav { display: grid; width: min(100%, 760px); margin-top: clamp(1rem, 3vh, 2.6rem); }
+.site-menu-nav a { display: flex; align-items: baseline; justify-content: space-between; padding: .42rem 0; border-bottom: 1px solid rgba(255,255,255,.2); font-family: var(--serif); font-size: clamp(2.7rem, 6vw, 5.5rem); font-weight: 400; line-height: .92; transition: padding .3s ease, color .3s ease; }
+.site-menu-nav a::after { content: "↗"; font-family: var(--sans); font-size: .62rem; letter-spacing: .16em; opacity: 0; transform: translateX(-9px); transition: opacity .25s ease, transform .25s ease; }
+.site-menu-nav a:hover, .site-menu-nav a[aria-current="page"] { padding-left: .7rem; color: var(--limestone); }
+.site-menu-nav a:hover::after, .site-menu-nav a[aria-current="page"]::after { opacity: 1; transform: translateX(0); }
+.site-menu-meta { display: grid; gap: .45rem; margin-top: clamp(2rem, 6vh, 4rem); color: rgba(255,255,255,.69); font-size: .69rem; letter-spacing: .08em; }
+.site-menu-meta a { width: max-content; color: var(--white); border-bottom: 1px solid rgba(255,255,255,.5); }
+.js .site-menu .eyebrow, .js .site-menu-nav a, .js .site-menu-meta { opacity: 0; transform: translateY(18px); }
+.js .site-menu.is-open .eyebrow { animation: menu-item-in .45s .09s ease-out forwards; }
+.js .site-menu.is-open .site-menu-nav a { animation: menu-item-in .52s ease-out forwards; }
+.js .site-menu.is-open .site-menu-nav a:nth-child(1) { animation-delay: .11s; }
+.js .site-menu.is-open .site-menu-nav a:nth-child(2) { animation-delay: .15s; }
+.js .site-menu.is-open .site-menu-nav a:nth-child(3) { animation-delay: .19s; }
+.js .site-menu.is-open .site-menu-nav a:nth-child(4) { animation-delay: .23s; }
+.js .site-menu.is-open .site-menu-nav a:nth-child(5) { animation-delay: .27s; }
+.js .site-menu.is-open .site-menu-nav a:nth-child(6) { animation-delay: .31s; }
+.js .site-menu.is-open .site-menu-nav a:nth-child(7) { animation-delay: .35s; }
+.js .site-menu.is-open .site-menu-meta { animation: menu-item-in .5s .42s ease-out forwards; }
+
 .brand { display: inline-flex; gap: .65rem; align-items: center; width: max-content; font-size: .64rem; line-height: 1.05; letter-spacing: .22em; }
 .brand-mark { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid currentColor; border-radius: 50%; font-family: var(--serif); font-size: 1rem; letter-spacing: -.1em; }
 .brand-copy { display: grid; gap: .18rem; }
 .brand-copy span { font-size: .5rem; letter-spacing: .37em; }
 .brand-copy strong { font-weight: 500; letter-spacing: .19em; white-space: nowrap; }
-.desktop-nav { display: flex; gap: clamp(.85rem, 1.7vw, 2rem); align-items: center; justify-content: center; font-size: .64rem; letter-spacing: .16em; text-transform: uppercase; }
-.desktop-nav a, .mobile-menu nav a { position: relative; padding: .55rem 0; }
-.desktop-nav a::after { position: absolute; right: 0; bottom: .2rem; left: 0; height: 1px; content: ""; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .28s ease; }
-.desktop-nav a:hover::after, .desktop-nav a[aria-current="page"]::after { transform: scaleX(1); transform-origin: left; }
-.header-cta { justify-self: end; font-size: .63rem; letter-spacing: .16em; text-transform: uppercase; }
-.header-cta span { margin-left: .25rem; }
-.menu-toggle, .mobile-menu { display: none; }
-.mobile-menu[hidden] { display: none !important; }
 
-.hero { position: relative; display: grid; min-height: min(870px, 100vh); color: var(--white); overflow: hidden; }
-.hero-image { position: absolute; inset: 0; z-index: 0; margin: 0; }
-.hero-image img { object-position: center 42%; }
-.hero-overlay { position: absolute; z-index: 1; inset: 0; background: linear-gradient(90deg, rgba(10,9,8,.58), rgba(10,9,8,.19) 58%, rgba(10,9,8,.26)), linear-gradient(0deg, rgba(10,9,8,.53), transparent 45%); }
-.hero-content { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: clamp(4rem, 8vw, 7rem); }
+.hero { position: relative; display: grid; min-height: 100svh; color: var(--white); overflow: hidden; isolation: isolate; }
+.hero-image { position: absolute; z-index: 0; inset: 0; margin: 0; }
+.hero-image img { height: 100%; object-position: center center; }
+.hero-overlay { position: absolute; z-index: 1; inset: 0; background: linear-gradient(180deg, rgba(7,7,7,.47), rgba(10,9,8,.16) 35%, rgba(8,7,6,.58)), linear-gradient(90deg, rgba(12,10,9,.26), transparent 50%, rgba(12,10,9,.22)); }
+.hero-center { position: relative; z-index: 2; display: grid; min-height: 100svh; padding: 8rem 0 5rem; place-content: center; text-align: center; }
+.hero-eyebrow { margin: 0 0 1.7rem; color: var(--white); font-size: .61rem; font-weight: 500; letter-spacing: .25em; text-transform: uppercase; }
 .hero-title, .display-hero, .display-xl, .display-lg { margin: 0; font-family: var(--serif); font-weight: 500; line-height: .88; letter-spacing: -.052em; }
-.hero-title { max-width: 920px; margin: 1.15rem 0 3.8rem; font-size: clamp(4.7rem, 10.3vw, 10.5rem); }
+.hero-title-centered { width: min(1050px, 100%); font-size: clamp(4.2rem, 8.25vw, 9.2rem); text-shadow: 0 5px 27px rgba(0,0,0,.18); }
+.hero-line { display: block; overflow: hidden; padding: .03em .07em .13em; }
+.hero-line > * { display: block; font-style: normal; }
+.hero-line em { font-style: italic; }
+.hero-scroll { position: absolute; z-index: 3; bottom: 2rem; left: 50%; display: flex; gap: .8rem; align-items: center; color: var(--white); font-size: .54rem; letter-spacing: .2em; text-transform: uppercase; transform: translateX(-50%); }
+.hero-scroll i { display: block; width: 42px; height: 1px; background: currentColor; animation: scroll-line 2.1s ease-in-out infinite; }
+.hero-concept-image figcaption { right: 1.2rem; bottom: 1.15rem; left: auto; z-index: 4; }
+.js .hero-home .hero-concept-image img { transform: scale(1.12); animation: hero-image-settle 1.8s cubic-bezier(.2,.75,.18,1) .05s forwards; }
+.js .page-home .header-cta, .js .page-home .header-brand, .js .page-home .menu-toggle { opacity: 0; transform: translateY(-11px); animation: hero-chrome-in .7s .18s cubic-bezier(.2,.75,.2,1) forwards; }
+.js .page-home .header-brand { animation-delay: .31s; }
+.js .page-home .menu-toggle { animation-delay: .43s; }
+.js .hero-eyebrow { opacity: 0; transform: translateY(15px); animation: hero-chrome-in .65s .53s cubic-bezier(.2,.75,.2,1) forwards; }
+.js .hero-line > * { opacity: .001; transform: translateY(115%); animation: hero-line-in 1.05s cubic-bezier(.15,.8,.2,1) forwards; }
+.js .hero-line:nth-child(1) > * { animation-delay: .63s; }
+.js .hero-line:nth-child(2) > * { animation-delay: .77s; }
+@keyframes hero-image-settle { to { transform: scale(1); } }
+@keyframes hero-line-in { to { opacity: 1; transform: translateY(0); } }
+@keyframes hero-chrome-in { to { opacity: 1; transform: translateY(0); } }
+@keyframes menu-item-in { to { opacity: 1; transform: translateY(0); } }
+@keyframes scroll-line { 0%, 100% { transform: scaleX(.55); transform-origin: right; } 50% { transform: scaleX(1); transform-origin: left; } }
 em { font-weight: 400; }
 .hero-bottom { display: flex; gap: 2rem; align-items: flex-end; justify-content: space-between; padding-top: 1.55rem; border-top: 1px solid var(--line-light); }
 .hero-bottom p { max-width: 400px; margin: 0; font-size: .9rem; line-height: 1.6; }
@@ -375,6 +435,8 @@ em { font-weight: 400; }
 .image-frame img { aspect-ratio: 4 / 3; transition: transform .8s cubic-bezier(.2,.7,.2,1); }
 .image-frame:hover img { transform: scale(1.035); }
 .image-frame figcaption { position: absolute; bottom: .75rem; left: .75rem; padding: .32rem .5rem; color: var(--white); background: rgba(20,18,16,.7); font-size: .47rem; letter-spacing: .13em; text-transform: uppercase; backdrop-filter: blur(7px); }
+.hero .image-frame.hero-image { position: absolute; z-index: 0; inset: 0; margin: 0; }
+.hero .image-frame.hero-image img { width: 100%; height: 100%; aspect-ratio: auto; }
 .hero-image figcaption { right: 1.25rem; bottom: 1.2rem; left: auto; z-index: 4; }
 
 .intro-section { display: grid; grid-template-columns: 1fr 2fr; gap: 3rem; }
@@ -382,6 +444,13 @@ em { font-weight: 400; }
 .section-index span { color: var(--ink); font-family: var(--sans); font-size: .59rem; letter-spacing: .18em; text-transform: uppercase; }
 .intro-copy { max-width: 940px; }
 .intro-copy .lead { margin-bottom: 2rem; }
+.home-manifesto { padding: clamp(6rem, 10vw, 10.5rem) 0; background: var(--white); }
+.manifesto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(4rem, 10vw, 12rem); align-items: start; }
+.manifesto-copy h2 { margin: .4rem 0 0; }
+.manifesto-detail { max-width: 530px; padding-left: clamp(2rem, 4vw, 4.5rem); border-left: 1px solid var(--line); }
+.manifesto-detail .lead { margin: 0 0 2rem; }
+.manifesto-detail > p:not(.lead) { max-width: 470px; margin: 0; color: var(--ink-soft); }
+.manifesto-detail .text-link { margin-top: 2.25rem; }
 .feature-panel { padding: clamp(4rem, 8vw, 8rem) 0; }
 .feature-grid { display: grid; grid-template-columns: .92fr 1.08fr; gap: clamp(3rem, 8vw, 9rem); align-items: center; }
 .feature-copy > p:not(.eyebrow) { max-width: 475px; margin: 2rem 0 2.6rem; color: rgba(255,255,255,.72); }
@@ -551,7 +620,6 @@ em { font-weight: 400; }
 
 @media (max-width: 1000px) {
   :root { --container: min(100% - 56px, 1440px); }
-  .desktop-nav { gap: .85rem; font-size: .56rem; }
   .journey-grid { grid-template-columns: 1fr 1fr; }
   .journey-card-offset { margin-top: 0; }
   .journey-card-wide { grid-column: span 2; display: grid; grid-template-columns: 1.15fr .85fr; }
@@ -565,28 +633,31 @@ em { font-weight: 400; }
 @media (max-width: 760px) {
   :root { --container: min(100% - 36px, 1440px); --section: 4.5rem; }
   body { font-size: 15px; }
-  .header-inner { grid-template-columns: 1fr auto auto; min-height: 72px; }
-  .desktop-nav, .header-cta { display: none; }
-  .menu-toggle { display: grid; gap: 5px; width: 38px; height: 38px; margin-left: .8rem; padding: 0; border: 0; color: currentColor; background: transparent; place-content: center; }
-  .menu-toggle span:not(.sr-only) { display: block; width: 20px; height: 1px; background: currentColor; transition: transform .2s ease; }
-  .menu-toggle.is-active span:nth-child(2) { transform: translateY(3px) rotate(45deg); }
-  .menu-toggle.is-active span:nth-child(3) { transform: translateY(-3px) rotate(-45deg); }
-  .mobile-menu { position: absolute; top: 100%; left: 0; display: block; width: 100%; padding: 1.6rem 9vw 2rem; color: var(--ink); background: var(--ivory); border-top: 1px solid var(--line); box-shadow: 0 20px 30px rgba(0,0,0,.1); }
-  .mobile-menu nav { display: grid; margin: 0 0 1.5rem; }
-  .mobile-menu nav a { padding: .7rem 0; border-bottom: 1px solid var(--line); font-family: var(--serif); font-size: 2rem; line-height: 1; }
-  .hero { min-height: 760px; }
-  .hero-title { margin: 1rem 0 2.3rem; font-size: clamp(4rem, 19vw, 6.2rem); }
-  .hero-bottom { display: grid; gap: 1.4rem; align-items: start; }
-  .hero-bottom p { max-width: 305px; font-size: .8rem; }
-  .hero-actions { gap: 1.4rem; flex-wrap: wrap; }
-  .hero-scroll { display: none; }
-  .hero-image figcaption { right: .7rem; bottom: .75rem; font-size: .39rem; }
+  .header-inner { min-height: 76px; }
+  .header-cta { min-height: 33px; padding: 0 .47rem; font-size: .4rem; letter-spacing: .14em; }
+  .header-brand { max-width: 44vw; }
+  .header-brand-name { font-size: clamp(.95rem, 4.5vw, 1.17rem); letter-spacing: .045em; }
+  .header-brand-subline { font-size: .3rem; letter-spacing: .12em; }
+  .menu-toggle { width: 35px; height: 35px; }
+  .menu-toggle span:not(.sr-only) { width: 15px; }
+  .site-menu-inner { padding-top: 8.4rem; }
+  .site-menu-nav a { padding: .55rem 0; font-size: clamp(2.45rem, 13vw, 4rem); }
+  .site-menu-meta { max-width: 245px; font-size: .59rem; }
+  .hero { min-height: 100svh; }
+  .hero-center { min-height: 100svh; padding: 7rem 0 4.8rem; }
+  .hero-eyebrow { margin-bottom: 1.2rem; font-size: .48rem; letter-spacing: .18em; }
+  .hero-title-centered { font-size: clamp(3.35rem, 14.7vw, 5.55rem); line-height: .9; }
+  .hero-scroll { bottom: 1.45rem; font-size: .45rem; }
+  .hero-scroll i { width: 28px; }
+  .hero-concept-image figcaption { right: .65rem; bottom: 4.1rem; font-size: .36rem; }
   .display-hero { font-size: clamp(4.1rem, 18vw, 6rem); }
   .display-xl { font-size: clamp(3.25rem, 15vw, 5rem); }
   .display-lg { font-size: clamp(2.9rem, 13vw, 4rem); }
   .lead { font-size: 1.45rem; }
-  .intro-section, .feature-grid, .split-section, .story-grid, .events-intro, .about-location-grid, .contact-hero-grid, .inquiry-section { grid-template-columns: 1fr; gap: 2rem; }
+  .intro-section, .feature-grid, .split-section, .story-grid, .events-intro, .about-location-grid, .contact-hero-grid, .inquiry-section, .manifesto-grid { grid-template-columns: 1fr; gap: 2rem; }
   .section-index { margin-bottom: .3rem; }
+  .home-manifesto { padding: 5rem 0; }
+  .manifesto-detail { padding-top: 2rem; padding-left: 0; border-top: 1px solid var(--line); border-left: 0; }
   .feature-copy { padding-top: .5rem; }
   .editorial-header { display: block; margin: 0 0 2.4rem; }
   .journey-grid { grid-template-columns: 1fr; gap: 1rem; }
@@ -641,34 +712,75 @@ em { font-weight: 400; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
   .js .reveal { opacity: 1; transform: none; }
+  .js .hero-home .hero-concept-image img, .js .hero-home .hero-eyebrow, .js .hero-home .hero-line > *, .js .page-home .header-cta, .js .page-home .header-brand, .js .page-home .menu-toggle { opacity: 1; transform: none; animation: none; }
 }
 '''
 
 JS_TEXT = r'''(() => {
   const header = document.querySelector('[data-header]');
   const toggle = document.querySelector('[data-menu-toggle]');
-  const menu = document.querySelector('[data-mobile-menu]');
+  const menu = document.querySelector('[data-site-menu]');
+  const darkSurfaceSelector = '.hero, .panel-dark, .image-statement, .page-hero-dark, .page-hero-image, .contact-hero, .not-found, .site-footer';
 
-  const setHeaderState = () => {
-    if (header) header.classList.toggle('is-scrolled', window.scrollY > 24);
+  const setHeaderTone = () => {
+    if (!header || header.classList.contains('is-menu-open')) return;
+    const probeY = Math.min(112, Math.round(window.innerHeight * .14));
+    const probe = document.elementFromPoint(Math.round(window.innerWidth / 2), probeY);
+    header.classList.toggle('is-light-surface', !probe?.closest(darkSurfaceSelector));
   };
-  setHeaderState();
-  window.addEventListener('scroll', setHeaderState, { passive: true });
+  setHeaderTone();
+  window.addEventListener('scroll', setHeaderTone, { passive: true });
+  window.addEventListener('resize', setHeaderTone);
 
   if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      const open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      toggle.classList.toggle('is-active', !open);
-      menu.hidden = open;
-      document.body.style.overflow = open ? '' : 'hidden';
-    });
-    menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+    const closeMenu = () => {
       toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Open navigation');
       toggle.classList.remove('is-active');
+      header.classList.remove('is-menu-open');
+      menu.classList.remove('is-open');
       menu.hidden = true;
       document.body.style.overflow = '';
-    }));
+      setHeaderTone();
+    };
+    const openMenu = () => {
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close navigation');
+      toggle.classList.add('is-active');
+      header.classList.add('is-menu-open');
+      menu.hidden = false;
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => menu.classList.add('is-open'));
+      menu.querySelector('[data-menu-link]')?.focus();
+    };
+    const menuFocusable = () => [
+      toggle,
+      ...menu.querySelectorAll('a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+    ].filter((element) => !element.hasAttribute('disabled'));
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      if (open) closeMenu(); else openMenu();
+    });
+    menu.querySelectorAll('[data-menu-link]').forEach((link) => link.addEventListener('click', closeMenu));
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        toggle.focus();
+      }
+      if (event.key === 'Tab' && toggle.getAttribute('aria-expanded') === 'true') {
+        const items = menuFocusable();
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (!first || !last) return;
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      }
+    });
   }
 
   const items = document.querySelectorAll('.reveal');
@@ -766,7 +878,8 @@ The initial site deliberately uses selected images from the supplied AURÉLION h
 
 | Current site filename | Current purpose | Replace with |
 | --- | --- | --- |
-| `arrival-study.png` | Hero / arrival atmosphere | Grand Venue exterior, arrival, or architectural entrance photography |
+| Managed concept URL `image-1.webp` | Full-screen homepage hero — generated luxury-ballroom layout, motion, and mood study | Authentic wide Grand Venue ballroom or reception photography with a central text-safe area |
+| `arrival-study.png` | Arrival atmosphere | Grand Venue exterior, arrival, or architectural entrance photography |
 | `space-study.png` | Venue-space layout demonstration | Primary Grand Venue interior or architectural space photograph |
 | `ceremony-study.png` | Wedding editorial composition | Actual ceremony or reception photography at The AG Grand Venue |
 | `exterior-study.png` | Full-width location / arrival layout | Actual venue exterior or branded architectural photography |
@@ -775,6 +888,8 @@ The initial site deliberately uses selected images from the supplied AURÉLION h
 | `light-study.png` | Editorial detail image | Grand Venue material, light, or décor detail photography |
 | `atmosphere-study.png` | Warm architectural gallery composition | Actual atmospheric interior / event detail photograph |
 | `landscape-study.png` | Open-air event layout image | Actual Grand Venue exterior, event, or Houston-context photograph |
+
+The generated homepage hero is served from Manus managed storage rather than a local source file. It is **concept/placeholder imagery**, not a photo of The AG Grand Venue. When authentic hero photography is ready, replace the `HERO_CONCEPT_URL` value in `scripts/generate_site.py`, update the associated alt text, and remove the hero-specific concept notice only after the selected file is confirmed to be authentic Grand Venue photography.
 
 When replacing an image, keep the filename and crop intent where possible so that the layout requires no code changes. Update every relevant `alt` attribute and remove the concept-imagery notices only when the selected file is confirmed to be an authentic Grand Venue photo.
 """)
@@ -789,6 +904,7 @@ The first pass intentionally avoids making operational claims that have not been
 - GoHighLevel endpoint, authentication method, tag/pipeline logic, and field mapping
 - Confirmed public domain / deployment URL and official social accounts
 - Actual Grand Venue photography, photo usage permissions, and preferred image credits
+- A final wide homepage hero photograph of the completed Grand Venue: dramatic ballroom or reception space, tall ceilings, chandeliers, warm lighting, refined tables/florals, and a central text-safe composition. The current hero is a clearly disclosed generated concept placeholder.
 - Any legal/privacy text required for a working lead form
 """)
     write(ROOT / "README.md", """# The AG Grand Venue website
@@ -811,6 +927,7 @@ Then open `http://localhost:3000`.
 - Shared styles are in `site/assets/css/site.css`.
 - Navigation, reveal effects, and the non-submitting inquiry-form UI are in `site/assets/js/site.js`.
 - The supplied-template image replacement map is in `site/assets/images/README.md`.
+- The homepage hero uses a managed concept image declared as `HERO_CONCEPT_URL` in `scripts/generate_site.py`; it remains a placeholder until authentic Grand Venue photography is approved.
 - Unknown business details remain documented in `CONTENT-PLACEHOLDERS.md` rather than invented in the site.
 
 ## Inquiry form handoff
