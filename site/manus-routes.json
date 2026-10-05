@@ -1,0 +1,11 @@
+{
+  "routes": [
+    {"path": "/", "title": "Home"},
+    {"path": "/the-venue/", "title": "The Venue"},
+    {"path": "/weddings/", "title": "Weddings"},
+    {"path": "/events/", "title": "Events"},
+    {"path": "/gallery/", "title": "Gallery"},
+    {"path": "/about/", "title": "About"},
+    {"path": "/contact/", "title": "Contact"}
+  ]
+}
