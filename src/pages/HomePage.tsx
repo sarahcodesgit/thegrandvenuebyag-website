@@ -39,37 +39,6 @@ export function HomePage() {
         <ConceptImage name="exterior" className="statement-image" />
         <div className="image-statement-overlay"><p className="eyebrow eyebrow-light reveal">A New North Houston Address</p><h2 className="display-xl display-light reveal">Designed for the stories<br /><em>still to be told.</em></h2><a className="button button-light reveal" href="/contact/#inquiry">Start Planning <Arrow /></a></div>
       </section>
-      <section className="gallery-preview section-space container">
-        <div className="section-topline section-topline-centered reveal"><div><h2 className="display-lg home-single-line-heading">The Grand, <em>in every frame.</em></h2></div><a className="text-link gallery-view-link" href="/gallery/">View the gallery <Arrow /></a></div>
-        <div className="venue-gallery-track">
-          <img src="/media/gallery/390A0334.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/390A0358.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/390A0380.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/390A0470.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/390A0524.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/asian american-2.png" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-11.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-12.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-14.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-22.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-27.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-40.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-49.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/390A0334.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/390A0358.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/390A0380.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/390A0470.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/390A0524.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/asian american-2.png" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-11.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-12.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-14.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-22.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-27.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-40.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-49.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-        </div>
-      </section>
       <section className="location-cta panel-warm">
         <div className="container location-grid"><div className="reveal"><p className="eyebrow">Visit The Grand</p><h2 className="display-lg">The next chapter<br /><em>starts here.</em></h2></div><div className="location-detail reveal"><p>2103 FM 1960 Rd W<br />Houston, TX 77090</p><div className="location-actions"><a className="button" href="/contact/#inquiry">Schedule a Tour <Arrow /></a><a className="text-link" href={directionsUrl} target="_blank" rel="noopener">Get directions <Arrow /></a></div></div></div>
       </section>
