@@ -607,3 +607,114 @@ em { font-weight: 400; }
 
 .brand-footer { display: inline-flex; width: auto; }
 .footer-logo-image { display: block; width: 72px !important; max-width: 72px; height: auto; object-fit: contain; }
+
+
+/* 2027 presale popup */
+.presale-popup-backdrop {
+  position: fixed;
+  z-index: 120;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1.5rem;
+  background: rgba(13, 12, 11, .66);
+  backdrop-filter: blur(5px);
+  animation: presale-backdrop-in .3s ease both;
+}
+.presale-popup {
+  position: relative;
+  width: min(520px, 100%);
+  padding: clamp(2.5rem, 5vw, 4rem);
+  border: 1px solid rgba(154, 103, 77, .45);
+  color: var(--ink);
+  background: var(--white);
+  box-shadow: 0 28px 80px rgba(0,0,0,.3);
+  text-align: center;
+  animation: presale-popup-in .45s cubic-bezier(.2,.75,.2,1) both;
+}
+.presale-popup::before {
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(23, 21, 19, .12);
+  content: "";
+  pointer-events: none;
+}
+.presale-popup-close {
+  position: absolute;
+  z-index: 2;
+  top: .85rem;
+  right: .95rem;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 0;
+  color: var(--ink);
+  background: transparent;
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1;
+}
+.presale-popup-eyebrow {
+  margin: 0 0 1.1rem;
+  color: var(--copper);
+  font-size: .61rem;
+  font-weight: 600;
+  letter-spacing: .23em;
+  text-transform: uppercase;
+}
+.presale-popup h2 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 500;
+  letter-spacing: -.035em;
+  line-height: .95;
+}
+.presale-popup h2 em { color: var(--copper); }
+.presale-popup-copy {
+  max-width: 390px;
+  margin: 1.45rem auto 1.25rem;
+  color: var(--ink-soft);
+  font-size: .87rem;
+  line-height: 1.65;
+}
+.presale-popup-proof {
+  display: grid;
+  gap: .2rem;
+  margin-bottom: 1.45rem;
+  color: var(--copper);
+  font-size: .66rem;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+}
+.presale-popup-proof strong {
+  color: var(--ink-soft);
+  font-size: .56rem;
+  font-weight: 500;
+  letter-spacing: .16em;
+}
+.presale-popup-cta {
+  width: min(310px, 100%);
+}
+.presale-popup-dismiss {
+  display: block;
+  margin: 1rem auto 0;
+  padding: .2rem;
+  border: 0;
+  border-bottom: 1px solid rgba(23,21,19,.35);
+  color: rgba(23,21,19,.7);
+  background: transparent;
+  font-size: .61rem;
+  letter-spacing: .08em;
+}
+@keyframes presale-backdrop-in { from { opacity: 0; } }
+@keyframes presale-popup-in {
+  from { opacity: 0; transform: translateY(18px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (max-width: 760px) {
+  .presale-popup-backdrop { padding: 1rem; }
+  .presale-popup { padding: 2.6rem 1.6rem 2.2rem; }
+  .presale-popup h2 { font-size: clamp(2.35rem, 11vw, 3.15rem); }
+}
