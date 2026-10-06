@@ -27,7 +27,7 @@ export function HomePage() {
         </div>
       </section>
       <section className="section-space container editorial-section">
-        <div className="section-index reveal">Every celebration, elevated.</div>
+        <p className="eyebrow reveal">Every celebration, elevated.</p>
         <div className="editorial-header editorial-header-centered reveal"><h2 className="display-xl home-single-line-heading">Your moment. <em>On a grander scale.</em></h2></div>
         <div className="journey-grid">
           <article className="journey-card reveal"><ConceptImage name="ceremony" className="journey-image" /><div className="journey-content"><span>01</span><h3>Weddings</h3><p>For ceremonies, receptions, and every anticipation-filled moment between.</p><a className="text-link" href="/weddings/">Explore weddings <Arrow /></a></div></article>
