@@ -77,7 +77,7 @@ export const media = {
   hero: {
     src: '/media/concept/grand-ballroom-hero.webp',
     alt: 'Conceptual luxury ballroom wedding reception with chandeliers and elegant floral tables; this is not The AG Grand Venue.',
-    caption: 'Concept imagery — hero layout and mood study only',
+    caption: '',
   },
   arrival: {
     src: '/media/concept/arrival-study.png',
