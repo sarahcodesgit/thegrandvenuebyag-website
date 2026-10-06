@@ -48,3 +48,13 @@
 - Use `initial-venue-build` for the work in `sarahcodesgit/thegrandvenuebyag-website`.
 - Make logical commits as major build parts are completed; push the feature branch only.
 - Do not merge, force-push, or otherwise modify `main` without explicit approval.
+
+## 7. Architecture-only React + Vite + TypeScript refactor
+
+**Status: Complete.** TypeScript check and a clean production build pass; `dist/` emits content-bearing HTML for all seven public routes plus a noindex 404. Production-preview checks confirmed every route, route metadata, canonical/OG values, sitemap, robots, media assets, menu focus/close behavior, and the prepared inquiry-form behavior. The approved visual stylesheet is preserved byte-for-byte from the prior baseline; the legacy Python generator and `site/` output are removed.
+
+- Create a dedicated **`react-vite-refactor`** branch from the currently approved visual baseline. Do not make this conversion on `main`, do not merge to `main`, and push the completed refactor to the existing GitHub repository on that branch only.
+- Replace the Python `scripts/generate_site.py` workflow and generated `/site` architecture with a clean React + Vite + TypeScript component structure. Organize reusable navigation, footer, buttons, media, and related components under `src/components/`; retain individual public page components under `src/pages/`; retain shared styling under `src/styles/`; centralize replaceable concept photography and future media under `public/media/` where practical.
+- This is **not a redesign**. Preserve the approved homepage, typography, colors, spacing, navigation/menu design, all Framer-inspired page/menu/scroll animations and transitions, hover effects, responsive behavior, and all existing pages/routes. Do not simplify or remove any existing interaction solely because it is a refactor.
+- Preserve existing SEO behavior: meaningful static HTML for every public route, route-specific titles and descriptions, semantic HTML, sitemap, robots, canonical URLs, and appropriate social metadata. The React/Vite build must emit initial content rather than an empty client-only application shell.
+- Before completion, run the TypeScript check and production build; verify the emitted production output provides all routes without errors. Remove the old Python generation source and generated `/site` output only after the React/Vite implementation is verified to reproduce the approved site.

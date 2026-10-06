@@ -1,40 +1,86 @@
 # The AG Grand Venue website
 
-A static, SEO-forward first-pass website for The AG Grand Venue in North Houston. The design translates the supplied Framer hotel export’s editorial scale, type, spacing, and motion into a wedding and private-events experience.
+The AG Grand Venue is a **React + Vite + TypeScript** static website. This architecture preserves the approved luxury editorial experience while making shared UI, route content, interactions, and replaceable media maintainable for future targeted updates.
 
-## Local preview
+> The current design is an approved visual baseline. Do not make broad design changes, replace sections, or alter approved typography, motion, spacing, color, responsive behavior, or layouts unless a request explicitly requires it.
 
-Run the static server from the project root:
+## Requirements
+
+- Node.js 22+
+- pnpm 10 (the repository pins `pnpm@10.24.0`)
+
+## Install dependencies
 
 ```bash
-python3 -m http.server 3000 --directory site
+pnpm install
 ```
 
-Then open `http://localhost:3000`.
+## Run locally
 
-## Content editing
+```bash
+pnpm dev
+```
 
-- Public pages are in `site/` and its route directories.
-- Shared styles are in `site/assets/css/site.css`.
-- Navigation, reveal effects, and the non-submitting inquiry-form UI are in `site/assets/js/site.js`.
-- The supplied-template image replacement map is in `site/assets/images/README.md`.
-- The homepage hero uses a managed concept image declared as `HERO_CONCEPT_URL` in `scripts/generate_site.py`; it remains a placeholder until authentic Grand Venue photography is approved.
-- Unknown business details remain documented in `CONTENT-PLACEHOLDERS.md` rather than invented in the site.
+Vite starts the local development server on port `3000` by default. Open `http://localhost:3000`.
+
+## Production build
+
+```bash
+pnpm build
+```
+
+The build first produces the Vite client bundle and then statically prerenders every public route into `dist/`. This preserves meaningful initial HTML and per-route SEO metadata instead of shipping an empty client-only application shell.
+
+To inspect the production output locally:
+
+```bash
+pnpm preview --host 0.0.0.0 --port 3000
+```
+
+To run TypeScript checks:
+
+```bash
+pnpm typecheck
+```
+
+## Project structure
+
+```text
+src/
+├── components/      # Reusable navigation, footer, media, arrow, and inquiry-form components
+├── data/            # Typed route metadata, canonical origin, navigation, and media registry
+├── hooks/           # Scroll-reveal interaction hook
+├── pages/           # Home, The Venue, Weddings, Events, Gallery, About, Contact, and 404 pages
+├── styles/          # Approved visual baseline: typography, responsive layouts, and motion rules
+├── App.tsx          # Route-to-page composition and shared layout
+├── main.tsx         # React hydration entry
+└── ssg.tsx          # Server rendering entry for static page emission
+
+public/
+├── media/concept/   # Current concept imagery and the local hero placeholder
+├── media/README.md  # Image replacement map
+├── manus-routes.json
+├── robots.txt
+└── sitemap.xml
+
+scripts/prerender.ts # Creates content-bearing HTML for each route after the Vite bundle build
+```
+
+## Editing content and media
+
+- **Page content:** edit the relevant `src/pages/*.tsx` component.
+- **Shared navigation/footer/form:** edit `src/components/`.
+- **Shared presentation and motion:** edit `src/styles/site.css`. Preserve the approved class structure and animation rules unless the requested change requires them.
+- **Route metadata, canonical origin, and media references:** edit `src/data/site.ts`.
+- **Concept imagery:** replace files in `public/media/concept/`, then retain/update the visible placeholder disclosures and `public/media/README.md` until approved Grand Venue photography is available.
+- **Open business details:** remain intentionally documented in `CONTENT-PLACEHOLDERS.md` rather than invented.
 
 ## Inquiry form handoff
 
-The form UI uses stable names: `first_name`, `last_name`, `email`, `phone`, `event_type`, `preferred_event_date`, `estimated_guest_count`, and `message`. It intentionally prevents online submission until a GoHighLevel integration is supplied. Replace that UI-only handling in `site/assets/js/site.js` only when the approved GHL endpoint and mapping are available.
+The form uses stable names: `first_name`, `last_name`, `email`, `phone`, `event_type`, `preferred_event_date`, `estimated_guest_count`, and `message`. It intentionally prevents online lead delivery until an approved GoHighLevel endpoint, authentication method, and field mapping are available. The current React implementation lives in `src/components/InquiryForm.tsx`.
 
-## Production metadata
+## SEO and static output
 
-The intended production domain is centralized as `https://thegrandbyag.com` in `scripts/generate_site.py`. Update it only after the real public origin is confirmed, regenerate the static pages, and then verify canonical, Open Graph, sitemap, and robots values.
+Route-specific titles, descriptions, canonical URLs, Open Graph/Twitter values, and the 404 `noindex` directive are defined in `src/data/site.ts` and emitted by `scripts/prerender.ts`. The intended production origin is `https://thegrandbyag.com`; update it only after the real public origin is confirmed, then rebuild and verify all generated metadata, `public/sitemap.xml`, and `public/robots.txt`.
 
-## Regenerating static pages
-
-This initial build uses `scripts/generate_site.py` to produce the static page files and to copy the selected concept imagery from the supplied template archive. Run:
-
-```bash
-python3 scripts/generate_site.py
-```
-
-Do not remove the concept-imagery notices or imply that any current placeholder image depicts The AG Grand Venue.
+The output directory is `dist/`. No Python generator or generated `site/` directory is part of this architecture.
