@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { PageLayout } from './components/PageLayout';
 import { routes, type RouteKey } from './data/site';
 import { useSiteEffects } from './hooks/useSiteEffects';
-import { AboutPage } from './pages/AboutPage';
 import { ContactPage } from './pages/ContactPage';
 import { EventsPage } from './pages/EventsPage';
 import { GalleryPage } from './pages/GalleryPage';
@@ -30,7 +29,6 @@ export function App({ route }: AppProps) {
     weddings: WeddingsPage,
     events: EventsPage,
     gallery: GalleryPage,
-    about: AboutPage,
     contact: ContactPage,
     notFound: NotFoundPage,
   }[route];
