@@ -75,7 +75,7 @@ export const navigation = [
 
 export const media = {
   hero: {
-    src: '/media/concept/grand-ballroom-hero.webp',
+    src: '/media/concept/grand-ballroom-hero1.webp',
     alt: 'Conceptual luxury ballroom wedding reception with chandeliers and elegant floral tables; this is not The AG Grand Venue.',
     caption: '',
   },
@@ -85,7 +85,7 @@ export const media = {
     caption: 'Concept imagery — layout and mood study only',
   },
   space: {
-    src: '/media/concept/space-study.png',
+    src: '/media/concept/space-study.jpg',
     alt: 'Conceptual architectural image of a light-filled gathering space; this is not The AG Grand Venue.',
     caption: 'Concept imagery — layout and mood study only',
   },
@@ -95,7 +95,7 @@ export const media = {
     caption: 'Concept imagery — layout and mood study only',
   },
   exterior: {
-    src: '/media/concept/exterior-study.png',
+    src: '/media/concept/grand-ballroom-hero1.webp',
     alt: 'Conceptual exterior and arrival study; this is not The AG Grand Venue.',
     caption: 'Concept imagery — layout and mood study only',
   },
