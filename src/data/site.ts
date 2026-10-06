@@ -6,7 +6,6 @@ export type RouteKey =
   | 'weddings'
   | 'events'
   | 'gallery'
-  | 'about'
   | 'contact'
   | 'notFound';
 
@@ -45,11 +44,6 @@ export const routes: Record<RouteKey, RouteMeta> = {
     title: 'Gallery | The AG Grand Venue, North Houston',
     description: 'Explore the visual direction for The AG Grand Venue through conceptual editorial imagery and a grand celebration point of view.',
   },
-  about: {
-    key: 'about', path: '/about/', bodyClass: 'page page-about',
-    title: 'About The AG Grand Venue | North Houston',
-    description: 'Learn about The AG Grand Venue, a new luxury wedding and private-events destination in North Houston, Texas.',
-  },
   contact: {
     key: 'contact', path: '/contact/', bodyClass: 'page page-contact',
     title: 'Contact The AG Grand Venue | Schedule a Tour',
@@ -69,7 +63,6 @@ export const navigation = [
   { label: 'Weddings', href: '/weddings/' },
   { label: 'Events', href: '/events/' },
   { label: 'Gallery', href: '/gallery/' },
-  { label: 'About', href: '/about/' },
   { label: 'Contact', href: '/contact/' },
 ] as const;
 
