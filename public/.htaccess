@@ -1,0 +1,21 @@
+# The AG Grand Venue — Hostinger/Apache production rules
+
+Options -MultiViews
+DirectoryIndex index.html
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Serve existing files and directories normally.
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # React/Vite SPA fallback for any client-side route that was not prerendered.
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+# Protect dotfiles such as .env if any are ever uploaded accidentally.
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
