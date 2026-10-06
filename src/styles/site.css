@@ -596,8 +596,10 @@ em { font-weight: 400; }
 .contact-closing-heading { white-space: nowrap; }
 @media (max-width: 760px) { .contact-closing-heading { white-space: normal; } }
 
-.inquiry-contact-details p,
-.inquiry-contact-details a {
+.inquiry-intro .inquiry-contact-details p,
+.inquiry-intro .inquiry-contact-details a {
+  margin: 0;
+  max-width: none;
   font-family: var(--serif);
   font-size: 1.4rem;
   line-height: 1.3;
