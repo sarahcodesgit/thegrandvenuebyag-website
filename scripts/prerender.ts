@@ -4,7 +4,7 @@ import { renderRoute } from '../src/ssg';
 import { canonicalFor, navigation, routes, type RouteKey } from '../src/data/site';
 
 const distDirectory = join(process.cwd(), 'dist');
-const routeKeys: RouteKey[] = ['home', 'venue', 'weddings', 'events', 'gallery', 'about', 'contact', 'notFound'];
+const routeKeys: RouteKey[] = ['home', 'venue', 'weddings', 'events', 'gallery', 'contact', 'notFound'];
 
 function escapeAttribute(value: string): string {
   return value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;').replaceAll('>', '&gt;');
