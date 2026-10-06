@@ -16,7 +16,6 @@ export function GalleryPage() {
           <img src="/media/gallery/390A0470.jpg" className="gallery-medium" alt="" loading="lazy" />
           <img src="/media/gallery/B+P-11.jpg" className="gallery-large" alt="" loading="lazy" />
           <img src="/media/gallery/B+P-27.jpg" className="gallery-medium" alt="" loading="lazy" />
-          <img src="/media/gallery/B+P-49.jpg" className="gallery-large" alt="" loading="lazy" />
         </div>
         <div className="gallery-column gallery-column-b reveal">
           <img src="/media/gallery/390A0358.jpg" className="gallery-tall" alt="" loading="lazy" />
