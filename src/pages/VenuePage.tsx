@@ -15,12 +15,32 @@ export function VenuePage() {
       </section>
       <section className="venue-gallery-marquee" aria-label="Venue gallery preview">
         <div className="venue-gallery-track">
-          <ConceptImage name="ceremony" className="venue-gallery-image" />
-          <ConceptImage name="terrace" className="venue-gallery-image" />
-          <ConceptImage name="gathering" className="venue-gallery-image" />
-          <ConceptImage name="light" className="venue-gallery-image" />
-          <ConceptImage name="atmosphere" className="venue-gallery-image" />
-          <ConceptImage name="landscape" className="venue-gallery-image" />
+          <img src="/media/gallery/390A0334.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/390A0358.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/390A0380.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/390A0470.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/390A0524.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/asian american-2.png" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-11.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-12.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-14.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-22.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-27.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-40.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-49.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/390A0334.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/390A0358.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/390A0380.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/390A0470.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/390A0524.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/asian american-2.png" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-11.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-12.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-14.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-22.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-27.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-40.jpg" className="venue-gallery-image" alt="" loading="lazy" />
+          <img src="/media/gallery/B+P-49.jpg" className="venue-gallery-image" alt="" loading="lazy" />
           <ConceptImage name="ceremony" className="venue-gallery-image" />
           <ConceptImage name="terrace" className="venue-gallery-image" />
           <ConceptImage name="gathering" className="venue-gallery-image" />
