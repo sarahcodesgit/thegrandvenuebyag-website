@@ -562,8 +562,10 @@ em { font-weight: 400; }
   display: flex;
   width: max-content;
   gap: 1rem;
-  animation: venue-gallery-scroll 38s linear infinite;
+  animation: venue-gallery-scroll 42s linear infinite;
   will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
 }
 
 .venue-gallery-image {
@@ -582,7 +584,7 @@ em { font-weight: 400; }
 
 @keyframes venue-gallery-scroll {
   from { transform: translateX(0); }
-  to { transform: translateX(calc(-50% - .5rem)); }
+  to { transform: translate3d(calc(-50% - .5rem), 0, 0); }
 }
 
 @media (max-width: 760px) {
