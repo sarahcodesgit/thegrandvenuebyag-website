@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { PageLayout } from './components/PageLayout';
+import { PresalePopup } from './components/PresalePopup';
 import { routes, type RouteKey } from './data/site';
 import { useSiteEffects } from './hooks/useSiteEffects';
 import { ContactPage } from './pages/ContactPage';
@@ -33,5 +34,5 @@ export function App({ route }: AppProps) {
     notFound: NotFoundPage,
   }[route];
 
-  return <PageLayout currentRoute={route}><Page /></PageLayout>;
+  return <><PageLayout currentRoute={route}><Page /></PageLayout><PresalePopup /></>;
 }
