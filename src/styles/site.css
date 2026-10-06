@@ -430,3 +430,123 @@ em { font-weight: 400; }
   .js .reveal { opacity: 1; transform: none; }
   .js .hero-home .hero-concept-image img, .js .hero-home .hero-eyebrow, .js .hero-home .hero-line > *, .js .page-home .header-cta, .js .page-home .header-brand, .js .page-home .menu-toggle { opacity: 1; transform: none; animation: none; }
 }
+
+
+/* Homepage alignment refinements */
+.editorial-header-centered {
+  display: grid;
+  justify-items: center;
+  margin: 0 0 4rem;
+  text-align: center;
+}
+
+.home-single-line-heading {
+  max-width: none;
+  white-space: nowrap;
+}
+
+.editorial-header-centered .home-single-line-heading {
+  font-size: clamp(3rem, 5.6vw, 6.2rem);
+}
+
+.editorial-section .journey-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.4rem;
+  align-items: stretch;
+}
+
+.editorial-section .journey-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 0;
+}
+
+.editorial-section .journey-image img {
+  aspect-ratio: 4 / 4.25;
+}
+
+.editorial-section .journey-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.editorial-section .journey-content .text-link {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.section-topline-centered {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.section-topline-centered .gallery-view-link {
+  position: absolute;
+  right: 0;
+  bottom: .4rem;
+}
+
+.gallery-preview .gallery-strip {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.gallery-preview .gallery-strip > div,
+.gallery-preview .gallery-tile {
+  height: 100%;
+}
+
+.gallery-preview .gallery-tile-b {
+  transform: none;
+}
+
+.gallery-preview .gallery-tile img {
+  aspect-ratio: 4 / 5;
+}
+
+@media (max-width: 1000px) {
+  .home-single-line-heading {
+    white-space: normal;
+  }
+
+  .editorial-section .journey-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .editorial-header-centered {
+    margin-bottom: 2.4rem;
+  }
+
+  .home-single-line-heading {
+    white-space: normal;
+  }
+
+  .editorial-section .journey-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-topline-centered {
+    justify-items: start;
+    text-align: left;
+  }
+
+  .section-topline-centered .gallery-view-link {
+    position: static;
+    margin-top: 1.2rem;
+  }
+
+  .gallery-preview .gallery-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-preview .gallery-tile img {
+    aspect-ratio: 4 / 3.3;
+  }
+}
