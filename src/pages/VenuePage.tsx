@@ -4,8 +4,11 @@ import { ConceptImage } from '../components/ConceptImage';
 export function VenuePage() {
   return (
     <>
-      <section className="section-space container venue-experience-centered">
-        <div className="pair-copy reveal"><p className="eyebrow">The Grand Experience</p><h2 className="display-lg">A little more<br /><em>occasion in every detail.</em></h2><p>From romantic weddings to high-energy celebrations and formal gatherings, the strongest event design starts with a point of view. The Grand offers the beginning; your people, traditions, and imagination complete the story.</p><a className="text-link" href="/contact/#inquiry">Schedule a private tour <Arrow /></a></div>
+      <section className="feature-panel panel-dark">
+        <div className="container feature-grid">
+          <div className="feature-copy reveal"><p className="eyebrow eyebrow-light">The Grand Experience</p><h2 className="display-lg">A little more<br /><em>occasion in every detail.</em></h2><p>From romantic weddings to high-energy celebrations and formal gatherings, the strongest event design starts with a point of view. The Grand offers the beginning; your people, traditions, and imagination complete the story.</p><a className="button button-outline-light" href="/contact/#inquiry">Schedule a private tour <Arrow /></a></div>
+          <div className="feature-image reveal"><ConceptImage name="space" className="tall-image" /></div>
+        </div>
       </section>
       <section className="home-manifesto">
         <div className="container manifesto-grid">
