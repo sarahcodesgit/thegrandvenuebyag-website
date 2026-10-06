@@ -18,7 +18,6 @@ export function ConceptImage({ name, className = '', eager = false }: ConceptIma
         loading={eager ? 'eager' : 'lazy'}
         fetchPriority={eager ? 'high' : undefined}
       />
-      <figcaption>{image.caption}</figcaption>
     </figure>
   );
 }
