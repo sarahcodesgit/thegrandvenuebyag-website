@@ -11,7 +11,7 @@ export function HomePage() {
         <div className="hero-overlay" />
         <div className="hero-center container">
           <p className="hero-eyebrow">North Houston · Weddings · Private Events</p>
-          <h1 id="home-hero-title" className="hero-title hero-title-centered"><span className="hero-line"><span>The Grandest Moments</span></span><span className="hero-line"><em>Deserve a Grand Setting.</em></span></h1>
+          <h1 id="home-hero-title" className="hero-title hero-title-centered"><span className="hero-line"><span>Grand Moments</span></span><span className="hero-line"><em>Deserve a Grand Setting.</em></span></h1>
         </div>
         <a className="hero-scroll" href="#our-point-of-view"><span>Scroll to discover</span><i aria-hidden="true" /></a>
       </section>
