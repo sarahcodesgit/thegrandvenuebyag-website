@@ -28,7 +28,6 @@ export function InquiryForm() {
         <label className="form-full">Event Type<select name="event_type" defaultValue=""><option value="" disabled>Select an event type</option><option>Wedding</option><option>Quinceañera</option><option>Private Celebration</option><option>Corporate Event or Gala</option><option>Cultural Celebration</option><option>Other</option></select></label>
       </div>
       <div className="form-action">
-        <p className="form-disclosure">No CRM is connected yet. This form will not submit event details online in the current preview.</p>
         <button className="button" type="submit" data-inquiry-button>Prepare My Inquiry <Arrow /></button>
       </div>
       <p className="form-status" data-form-status role="status" aria-live="polite">{status}</p>
