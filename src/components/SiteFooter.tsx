@@ -8,8 +8,7 @@ export function SiteFooter() {
       <div className="footer-top container">
         <div className="footer-brand">
           <a className="brand brand-footer" href="/" aria-label="The AG Grand Venue home">
-            <span className="brand-mark">AG</span>
-            <span className="brand-copy"><span>THE</span><strong>GRAND VENUE</strong></span>
+            <img className="footer-logo-image" src="/media/concept/AGGVLOGOWhite.PNG" alt="The AG Grand Venue" />
           </a>
           <p>A grand setting for the moments that change everything.</p>
         </div>
