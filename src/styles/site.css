@@ -591,3 +591,7 @@ em { font-weight: 400; }
   .venue-gallery-marquee { padding-bottom: 3.5rem; }
   .venue-gallery-image { width: min(72vw, 320px); height: min(54vw, 240px); }
 }
+
+.contact-closing { text-align: center; }
+.contact-closing-heading { white-space: nowrap; }
+@media (max-width: 760px) { .contact-closing-heading { white-space: normal; } }
