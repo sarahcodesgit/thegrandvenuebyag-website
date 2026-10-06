@@ -44,12 +44,6 @@ export function VenuePage() {
           <img src="/media/gallery/B+P-27.jpg" className="venue-gallery-image" alt="" loading="lazy" />
           <img src="/media/gallery/B+P-40.jpg" className="venue-gallery-image" alt="" loading="lazy" />
           <img src="/media/gallery/B+P-49.jpg" className="venue-gallery-image" alt="" loading="lazy" />
-          <ConceptImage name="ceremony" className="venue-gallery-image" />
-          <ConceptImage name="terrace" className="venue-gallery-image" />
-          <ConceptImage name="gathering" className="venue-gallery-image" />
-          <ConceptImage name="light" className="venue-gallery-image" />
-          <ConceptImage name="atmosphere" className="venue-gallery-image" />
-          <ConceptImage name="landscape" className="venue-gallery-image" />
         </div>
         <div className="venue-gallery-cta"><a className="text-link" href="/gallery/">Explore the full gallery <Arrow /></a></div>
       </section>
