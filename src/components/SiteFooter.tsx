@@ -25,7 +25,6 @@ export function SiteFooter() {
       </div>
       <div className="footer-bottom container">
         <p>© {new Date().getFullYear()} The AG Grand Venue. All rights reserved.</p>
-        <p>Concept imagery is used for layout direction only. Venue photography is forthcoming.</p>
       </div>
     </footer>
   );
