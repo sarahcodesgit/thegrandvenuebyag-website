@@ -15,8 +15,8 @@ export function HomePage() {
       </section>
       <section id="our-point-of-view" className="home-manifesto">
         <div className="container manifesto-grid">
-          <div className="manifesto-copy reveal"><p className="eyebrow">The AG Grand Venue</p><h2 className="display-lg">A place for moments<br /><em>that ask for more.</em></h2></div>
-          <div className="manifesto-detail reveal"><p className="lead">A new North Houston setting for ceremonies, celebrations, and gatherings with a sense of occasion.</p><p>Here, the anticipation of arrival, the meaning of tradition, and the energy of the room all have space to unfold. The Grand is imagined for the memories that deserve to feel singular from the very first moment.</p><a className="text-link" href="/the-venue/">Discover The Venue <Arrow /></a></div>
+          <div className="manifesto-copy reveal"><p className="eyebrow">The AG Grand Venue</p><h2 className="display-lg">One Venue.<br /><em>Two Grand Settings.</em></h2></div>
+          <div className="manifesto-detail reveal"><p className="lead">With two distinct event halls under one destination, The AG Grand Venue offers the flexibility to create celebrations that feel entirely your own—from intimate traditions to grand receptions.</p><p>Here, the anticipation of arrival, the meaning of tradition, and the energy of the room all have space to unfold. The Grand is imagined for the memories that deserve to feel singular from the very first moment.</p><a className="text-link" href="/the-venue/">Discover The Venue <Arrow /></a></div>
         </div>
       </section>
       <section className="feature-panel panel-dark">
