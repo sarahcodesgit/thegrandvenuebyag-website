@@ -27,8 +27,8 @@ export function HomePage() {
         </div>
       </section>
       <section className="section-space container editorial-section">
-        <div className="section-index reveal">02 <span>Ways to Gather</span></div>
-        <div className="editorial-header editorial-header-centered reveal"><p className="eyebrow">Every celebration, elevated</p><h2 className="display-xl home-single-line-heading">Your moment. <em>On a grander scale.</em></h2></div>
+        <div className="section-index reveal"><strong>Every celebration, elevated.</strong></div>
+        <div className="editorial-header editorial-header-centered reveal"><h2 className="display-xl home-single-line-heading">Your moment. <em>On a grander scale.</em></h2></div>
         <div className="journey-grid">
           <article className="journey-card reveal"><ConceptImage name="ceremony" className="journey-image" /><div className="journey-content"><span>01</span><h3>Weddings</h3><p>For ceremonies, receptions, and every anticipation-filled moment between.</p><a className="text-link" href="/weddings/">Explore weddings <Arrow /></a></div></article>
           <article className="journey-card reveal"><ConceptImage name="terrace" className="journey-image" /><div className="journey-content"><span>02</span><h3>Celebrations</h3><p>Quinceañeras and milestone occasions with space for personal tradition.</p><a className="text-link" href="/events/#celebrations">Discover celebrations <Arrow /></a></div></article>
@@ -40,7 +40,7 @@ export function HomePage() {
         <div className="image-statement-overlay"><p className="eyebrow eyebrow-light reveal">A New North Houston Address</p><h2 className="display-xl display-light reveal">Designed for the stories<br /><em>still to be told.</em></h2><a className="button button-light reveal" href="/contact/#inquiry">Start Planning <Arrow /></a></div>
       </section>
       <section className="gallery-preview section-space container">
-        <div className="section-topline section-topline-centered reveal"><div><p className="eyebrow">Visual Direction</p><h2 className="display-lg home-single-line-heading">The Grand, <em>in every frame.</em></h2></div><a className="text-link gallery-view-link" href="/gallery/">View the gallery <Arrow /></a></div>
+        <div className="section-topline section-topline-centered reveal"><div><h2 className="display-lg home-single-line-heading">The Grand, <em>in every frame.</em></h2></div><a className="text-link gallery-view-link" href="/gallery/">View the gallery <Arrow /></a></div>
         <div className="gallery-strip"><div className="reveal"><ConceptImage name="light" className="gallery-tile gallery-tile-a" /></div><div className="reveal"><ConceptImage name="atmosphere" className="gallery-tile gallery-tile-b" /></div><div className="reveal"><ConceptImage name="landscape" className="gallery-tile gallery-tile-c" /></div></div>
       </section>
       <section className="location-cta panel-warm">
