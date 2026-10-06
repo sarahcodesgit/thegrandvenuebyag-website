@@ -7,7 +7,7 @@ export function GalleryPage() {
       <section className="home-manifesto">
         <div className="container manifesto-grid">
           <div className="manifesto-copy reveal"><p className="eyebrow">Gallery</p><h1 className="display-lg">The feeling,<br /><em>before the first frame.</em></h1></div>
-          <div className="manifesto-detail reveal"><p className="lead">A visual direction for The AG Grand Venue. These inherited concept images demonstrate the intended rhythm, light, and editorial scale—not the physical venue.</p></div>
+          <div className="manifesto-detail reveal"><p className="lead">A glimpse into the atmosphere of The AG Grand Venue. Explore the inspiration, elegance, and unforgettable moments that define our vision for every celebration.</p></div>
         </div>
       </section>
       <section className="gallery-page-grid container">
