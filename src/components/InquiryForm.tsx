@@ -22,14 +22,10 @@ export function InquiryForm() {
   return (
     <form className="inquiry-form reveal" data-inquiry-form noValidate onSubmit={prepareInquiry}>
       <div className="form-grid">
-        <label>First Name<input name="first_name" autoComplete="given-name" required /></label>
-        <label>Last Name<input name="last_name" autoComplete="family-name" required /></label>
-        <label>Email<input type="email" name="email" autoComplete="email" required /></label>
-        <label>Phone<input type="tel" name="phone" autoComplete="tel" required /></label>
-        <label>Event Type<select name="event_type" required defaultValue=""><option value="" disabled>Select an event type</option><option>Wedding</option><option>Quinceañera</option><option>Private Celebration</option><option>Corporate Event or Gala</option><option>Cultural Celebration</option><option>Other</option></select></label>
-        <label>Preferred Event Date<input type="date" name="preferred_event_date" required /></label>
-        <label>Estimated Guest Count<input type="number" name="estimated_guest_count" inputMode="numeric" min="1" placeholder="Optional" /></label>
-        <label className="form-full">Tell Us About Your Event<textarea name="message" rows={5} required placeholder="Your vision, occasion, and anything else we should know." /></label>
+        <label className="form-full">Full Name *<input name="full_name" autoComplete="name" required /></label>
+        <label className="form-full">Phone Number *<input type="tel" name="phone" autoComplete="tel" required /></label>
+        <label className="form-full">Email Address *<input type="email" name="email" autoComplete="email" required /></label>
+        <label className="form-full">Event Type<select name="event_type" defaultValue=""><option value="" disabled>Select an event type</option><option>Wedding</option><option>Quinceañera</option><option>Private Celebration</option><option>Corporate Event or Gala</option><option>Cultural Celebration</option><option>Other</option></select></label>
       </div>
       <div className="form-action">
         <p className="form-disclosure">No CRM is connected yet. This form will not submit event details online in the current preview.</p>
