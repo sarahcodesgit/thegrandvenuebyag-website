@@ -39,7 +39,7 @@ export function HomePage() {
         <InquiryForm />
       </section>
       <section className="location-cta panel-warm">
-        <div className="container reveal"><p className="eyebrow">Visit The Grand</p><h2 className="display-lg">The next chapter <em>starts here.</em></h2></div>
+        <div className="container reveal location-cta-centered"><p className="eyebrow">Visit The Grand</p><h2 className="display-lg home-single-line-heading">The next chapter <em>starts here.</em></h2></div>
       </section>
     </>
   );
