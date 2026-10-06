@@ -2,8 +2,6 @@ import { Arrow } from '../components/Arrow';
 import { ConceptImage } from '../components/ConceptImage';
 import { InquiryForm } from '../components/InquiryForm';
 
-const directionsUrl = 'https://www.google.com/maps/search/?api=1&query=2103+FM+1960+Rd+W,+Houston,+TX+77090';
-
 export function HomePage() {
   return (
     <>
@@ -41,7 +39,7 @@ export function HomePage() {
         <InquiryForm />
       </section>
       <section className="location-cta panel-warm">
-        <div className="container location-grid"><div className="reveal"><p className="eyebrow">Visit The Grand</p><h2 className="display-lg">The next chapter<br /><em>starts here.</em></h2></div><div className="location-detail reveal"><p>2103 FM 1960 Rd W<br />Houston, TX 77090</p><div className="location-actions"><a className="button" href="/contact/#inquiry">Schedule a Tour <Arrow /></a><a className="text-link" href={directionsUrl} target="_blank" rel="noopener">Get directions <Arrow /></a></div></div></div>
+        <div className="container reveal"><p className="eyebrow">Visit The Grand</p><h2 className="display-lg">The next chapter <em>starts here.</em></h2></div>
       </section>
     </>
   );
